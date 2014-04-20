@@ -3,16 +3,9 @@ sint
 
 FH Technikum Wien - Restful WebService Development
 
-WS1_MED_BusinessLogic_Server:
-   https://gate.edelhofer.org/sint/api
-
-WS2_CMA_Currency_Converter:
-   http://remote.makas.at/ConversionService.asmx
-
-WS3_MDI_Client_App
-   http://www.diepold.net/sint/
-
-
+Markus Edelhofer: WS1_MED_BusinessLogic_Server:
+Christian Makas: WS2_CMA_Currency_Converter:
+Markus Diepold: WS3_MDI_Client_App
 
 Quellcode:
    https://github.com/vandenbergen/sint
