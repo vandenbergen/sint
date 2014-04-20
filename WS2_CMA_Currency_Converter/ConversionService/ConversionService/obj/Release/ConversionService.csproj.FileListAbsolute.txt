@@ -1,0 +1,5 @@
+D:\Users\Christian\Desktop\ConversionService\ConversionService\bin\ConversionService.dll.config
+D:\Users\Christian\Desktop\ConversionService\ConversionService\bin\ConversionService.dll
+D:\Users\Christian\Desktop\ConversionService\ConversionService\bin\ConversionService.pdb
+D:\Users\Christian\Desktop\ConversionService\ConversionService\obj\Release\ConversionService.dll
+D:\Users\Christian\Desktop\ConversionService\ConversionService\obj\Release\ConversionService.pdb

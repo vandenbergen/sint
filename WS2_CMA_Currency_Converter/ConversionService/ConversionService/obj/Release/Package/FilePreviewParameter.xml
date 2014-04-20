@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="SINT2" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Birgit\\Dropbox\\SINT\\Projekt-MDI-MED-CMA\\WS2_CMA_Currency_Converter\\ConversionService\\ConversionService\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Birgit\\Dropbox\\SINT\\Projekt-MDI-MED-CMA\\WS2_CMA_Currency_Converter\\ConversionService\\ConversionService\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+</parameters>
