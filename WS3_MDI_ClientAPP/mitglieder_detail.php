@@ -54,7 +54,7 @@
             <ul>
               <li><a href="#">Dokumentation des Projekts</a></li>
               <li><a href="#">Probleme/Erkenntnisse</a></li>
-              <li><a href="#">Quellcode</a></li>
+              <li><a href="https://github.com/vandenbergen/sint">Quellcode</a></li>
               <li><a href="#">Sonstiges</a></li>
             </ul>
           </div>

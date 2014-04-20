@@ -54,7 +54,7 @@
             <ul>
               <li><a href="#">Dokumentation des Projekts</a></li>
               <li><a href="#">Probleme/Erkenntnisse</a></li>
-              <li><a href="#">Quellcode</a></li>
+              <li><a href="https://github.com/vandenbergen/sint">Quellcode</a></li>
               <li><a href="#">Sonstiges</a></li>
             </ul>
           </div>
@@ -105,7 +105,7 @@
 					// echo '<br>'.json_encode($data).'<br>';
 							
 					my_curl_PUT(json_encode($data),'https://gate.edelhofer.org/sint/api/rent');
-					header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+					//header("Location: http://www.diepold.net/sint/mitglieder_detail.php/id=".$_POST['id']);
 				}
 
 						
