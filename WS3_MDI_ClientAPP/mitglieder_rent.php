@@ -10,6 +10,7 @@
   <!-- modernizr enables HTML5 elements and feature detects -->
   <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
   <?php include ("./lib/functions.php"); ?>
+  <script type="text/javascript" src="js/picture.js"></script>
 </head>
 
 <body>
@@ -51,9 +52,10 @@
         <div class="sidebar">
           <h3>Weitere Links</h3>
           <div class="sidebar_item">
-            <ul>
-              <li><a href="#">Dokumentation des Projekts</a></li>
-              <li><a href="#">Probleme/Erkenntnisse</a></li>
+			<a href="images/schema.jpg" onclick="OpenNewWindow(this.href,800,600,'Schema');return false;" onkeypress="">
+			<img class="bild200" src="images/schema.jpg" alt="Schema" title="Schemaübersicht" border="0" width="150" height="120"></a><br>
+              <li><a href="#">Dokumentation</a></li>
+			  <li><a href="#">Probleme/Erkenntnisse</a></li>
               <li><a href="https://github.com/vandenbergen/sint">Quellcode</a></li>
               <li><a href="#">Sonstiges</a></li>
             </ul>
