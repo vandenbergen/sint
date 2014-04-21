@@ -55,9 +55,9 @@
 			<a href="images/schema.jpg" onclick="OpenNewWindow(this.href,800,600,'Schema');return false;" onkeypress="">
 			<img class="bild200" src="images/schema.jpg" alt="Schema" title="Schemaübersicht" border="0" width="150" height="120"></a><br>
               <li><a href="#">Dokumentation</a></li>
-			  <li><a href="#">Probleme/Erkenntnisse</a></li>
-              <li><a href="https://github.com/vandenbergen/sint">Quellcode</a></li>
-              <li><a href="#">Sonstiges</a></li>
+			  <li><a href="https://gate.edelhofer.org/sint/api">REST/SOAP Cars Rental Webservice</a></li>
+              <li><a href="http://remote.makas.at/ConversionService.asmx">SOAP Currency Converter Webservice</a></li>
+              <li><a href="https://github.com/vandenbergen/sint">Quellcode auf GitHub</a></li>
             </ul>
           </div>
           <div class="sidebar_base"></div>
