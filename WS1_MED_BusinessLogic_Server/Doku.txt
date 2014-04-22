@@ -1,0 +1,108 @@
+Verwende Tools / Technologien:
+   - Server
+      - Scientific Linux release 6.5
+      - Python 2.6.6
+         - web.py 0.37
+         - PySimpleSOAP 1.10
+         - pysqlite 2.6.3
+      - Apache 2.2.15
+         - mod_wsgi-3.2-3
+      - SQLite 3.6.20
+   - Dev. Umgebung
+      - Fedora release 20
+      - Python 2.7.5
+         - web.py 0.37
+         - PySimpleSOAP 1.10
+         - pysqlite 2.6.3
+      - SQLite 3.8.4.2
+   - Entwicklungs Tools
+      - gedit 3.10
+      - SoapUI 5.0.0
+      - Sqliteman 1.2.2
+
+Lessons Learned:
+   - Die Wahl des richtigen Python / REST Framework muss gut überlegt bzw. 
+     überprüft werden. Es wurde beim Goolge-Reasearch darauf geachtet ob es
+     eine groß genuge Community gibt, welche das Framework verwendet.
+   - Schnittstellen-Doku. sollte über den REST-Server ausgegeben werden, damit
+     man schnell sieht welche Funktionen bereits implementiert sind.
+   - db-Strucktur muss gut überlegt werden.
+   - Beim Aufrufen des REST-WebService, bzw. beim Testen der Aufrufe/Verbindung
+     ist eine Einsicht in die (in diesem Fall) Apache Logs unerlässlich, um
+     schnell festzustellen was am WebService ankommt. Dieses Problem wurde per
+     Telefonkonferenz gelöst.
+
+Programms Beschreibung:
+   Das REST-WebService ist in Python (2.7 bzw. 2.6) geschrieben. Als Framework
+   wird Web.py mit eine SQLite als db verwendet. Durch Web.py lässt sich das
+   WebService lokal direckt starten und besitzt auch einen Debug Modus. Für
+   denn Produktions-Server wird ein Apache-httpd Vorgeschalten und mittels WSGI
+   verbunden. In der Datenbank gibt es fünf Tabellen:
+      - cars		Bestandsliste der Fahrzeuge
+      - countries       Talle mit allen Europäischen Ländern, Länderkürzel und
+                        Währungen
+      - customers	Kundenliste
+      - locations	Liste der Verleihstandorte
+      - rental		Verwaltung der verliehenen Fahrzeuge
+   Alle Informationen werden mittels JSON ausgetauscht.
+
+Programms Beschreibung (Klassen):
+   /			(index)
+	Ausgabe der Schnittstellen Übersichtsdokumentation als HTML.
+
+   /cars 		(show_cars)
+	Mittels GET werden alle Vorhanden Fahrzeuge, sowie ihre Standort und
+        ihre Unmittelbare Verfügbarkeit angezeigt. Dei der Standort Ausgabe
+        wird der Name der Stadt aus der Tabelle 'locations' gelesen, alle
+        weiteren Informationen kommen aus der Tabelle 'cars'.
+
+   /cars/(.*)		(show_car)
+        Mittels GET können die Fahrzeuge auch einzeln ausgelesen werden.
+
+   /rent		(rent)
+        Mittels GET werden alle Leihen angezeigt (Tabelle 'rental'). Die 
+        Personen Informationen kommen dabei aus der Tabelle 'customers', die
+        der Fahrzeuge aus 'cars'. Bei Aufruf dieser Klasse wir am beginn die
+        Methode 'set_rent_state' (siehe weiter unten), aufgerufen um einen
+        aktuellen Status der Leihe zu Gewährleisten.
+
+        Mittels PUT und POST kann eine neue Leihe durchgeführt werden.
+
+   /customers		(customers)
+        Mittels GET werden alle Kunden ausgegeben, mit PUT und POST kann ein 
+        neuer Kunden hinzugefühgt werden.
+
+   /customers/(.*)/rent	(show_customers_rent)
+        Mittels GET werden alle Leihen eines Kunden angezeigt.
+
+
+   /customers/(.*)	/customer)
+        Mittels GET werden die Informationen über einen einzelnen Kudnen
+        ausgegeben, mit PUT und POST können die Informationen des Kunden
+        geändert und mittels DELETE kann der Kunden gelöscht werden.
+
+   /countries		(show_countries)
+        Diese Funktion gibt alle Europäschen Länder, sowie den dazugehörigen
+        UN/LOCODE und die Währungen aus.
+
+   /locations		(show_locations)
+        Mittels GET werden alle Standorte an dennen eine Fahrzeug ausgeliehen
+        und Zurückgegeben werden kann ausgegeben.
+
+   /locations/(.*)	(show_locations_cars)
+        Mittels GET werden alle Fahrzeuge die an dem jeweiligen Standort zur
+        verfühgung stehen ausgegeben.
+
+Programms Beschreibung (Methoden):
+   cus_out(output)
+      Diese Methode wird verwendet um den db-Output auf ein JSON Syntax 
+      umzuschreiben.
+
+   soap_req(sC,sP,tC)
+      Diese Methode ruft das SOAP-Service zur Währungsumrechung auf. Im 
+      Fehlerfall, wird der Betrag und die Währung wieder in EUR zurückgegeben. 
+
+   set_rent_state()
+      Diese Methode überprüft die 'rental' Tabelle ob ein Fahrzug im Moment 
+      verfügbar ist und passt diese Information bei dem Jeweiligen Fahrzeug an.
+
